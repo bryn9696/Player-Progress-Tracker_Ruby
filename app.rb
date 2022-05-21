@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+require "sinatra/activerecord"
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/reloader'
-# require './database_connection_setup'
+require './database_connection_setup'
 # require './lib/bookings'
 # require_relative './lib/makersbnb'
 # require './lib/user'

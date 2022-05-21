@@ -1,0 +1,2 @@
+CREATE DATABASE player_progress_tracker;
+CREATE DATABASE player_progress_tracker_test;

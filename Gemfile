@@ -12,6 +12,9 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-flash', '~> 0.3.0'
 gem 'webrick'
+gem "sinatra-activerecord"
+gem "sqlite3"
+gem "rake"
 
 group :test do
   gem 'capybara'
