@@ -8,9 +8,8 @@ class MyTeams
   end
 
   def self.exist?(team_name:)
-    result = DatabaseConnection.query("SELECT * FROM my_teams WHERE team_name = $1;",[team_name])
+    result = DatabaseConnection.query("SELECT * FROM my_teams WHERE team_name = $1;",[team_name] )
     @unsuccessful = !result.to_a.empty?
-    
   end 
 
   def self.unsuccessful 

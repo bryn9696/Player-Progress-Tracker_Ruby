@@ -66,11 +66,11 @@ class PlayerProgressTracker < Sinatra::Base
     erb :'form_a_team'
   end
   post '/team_created' do
-    if MyTeams.exist?(team_name: params[:Team_Name], user_id: params[:user_id])
+    if MyTeams.exist?(team_name: params[:team_name], user_id: params[:user_id])
         redirect '/form_a_team'
     else
-      MyTeams.create_team(team_name: params[:Name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: session[:user_id])
-      @team_name = params[:Name]
+      MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: session[:user_id])
+      @team_name = params[:team_name]
       @number_of_players = params[:Number_of_Players]
       @coach_or_manager = params[:Coach_or_Manager]
       erb :'team_created_success'
