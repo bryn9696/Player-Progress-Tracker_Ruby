@@ -1,1 +1,41 @@
-<h1>PPT <?h1>
+<!DOCTYPE html>
+<head> 
+  <link href="<%= url('/home.css') %>" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/ea92a85679.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%# header %>
+  <div id='welcome'>
+  <div id='logo'>
+  </div>
+    <h1>Player Progress Tracker</h1>
+  </div>
+  <%# navbar %>
+  <nav> 
+  <p id='home'><i class="fas fa-home"></i> Home</p>
+  <div id="nav-links">
+    <a href="/Form_a_space">Form a Team</a> |
+    <a href="/update_team">Update Team</a> |
+    <a href="/my_teams">My Teams</a> |
+    <a href="/">Logout</a> |
+    <p id='username'><i class="fas fa-user"></i><%= @username %> </p>
+  </div>
+</nav>
+
+<%# main section %>
+  <% @teams.each do |team| %>
+    <div id='team-container'>
+      <div id='details-team'>
+        <h4 d='team_name'><%= team['team_name'] %></h4>
+        <%# <span>Number  of Players</span>  %>
+        <div id='description'>
+          <p id='desc'><%= team['number_of_players'] %></p>
+        </div>
+        <div id='coach_or_manager'>
+        £<%= team['coach_or_manager'] %> /night
+        </div>
+      </div>
+
+  <% end %>
+</body>

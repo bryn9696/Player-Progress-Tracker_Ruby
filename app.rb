@@ -6,7 +6,7 @@ require 'sinatra/flash'
 require 'sinatra/reloader'
 require './database_connection_setup'
 # require './lib/bookings'
-# require_relative './lib/makersbnb'
+require_relative './lib/teams'
 require './lib/user'
 # require_relative './lib/update'
 # require './lib/images'
@@ -53,12 +53,12 @@ class PlayerProgressTracker < Sinatra::Base
   get '/home' do
     if User.valid(session[:username], session[:password])
       session[:user_id] = User.user_id(username: session[:username])
+      @teams = MyTeams.view_teams
       @username = session[:username]
       erb :home
     else
       flash[:notice] = 'Invalid username or password'
       redirect '/login'
-    end
-    
+    end 
   end
 end
