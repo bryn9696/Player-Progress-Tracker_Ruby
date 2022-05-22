@@ -19,10 +19,11 @@ ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
-    DatabaseConnection.query('TRUNCATE users, teams, players CASCADE;')
+    DatabaseConnection.query('TRUNCATE users, teams, my_teams, players CASCADE;')
     DatabaseConnection.query("ALTER SEQUENCE users_id_seq RESTART WITH 1;")
     DatabaseConnection.query("ALTER SEQUENCE teams_id_seq RESTART WITH 1;")
     DatabaseConnection.query("ALTER SEQUENCE players_id_seq RESTART WITH 1;")
+    DatabaseConnection.query("ALTER SEQUENCE my_teams_id_seq RESTART WITH 1;")
   end
 end
 

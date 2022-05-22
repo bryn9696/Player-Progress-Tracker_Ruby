@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <title>Form a team</title>
+  <link rel="stylesheet" type="text/css" href="<%= url("/check_request.css")%>">
+  <script src="https://kit.fontawesome.com/ea92a85679.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div id='header'>
+    <div id='logo'>
+    </div>
+    <h1> Form a team </h1>
+  </div>
+
+  <nav> 
+  <a href="/home" id='home'><i class="fas fa-home"></i> Home</a>
+   <div id="nav-links">
+     <a href="/my_teams">My Teams</a> |
+     <a href="/">Logout</a><i class="fas fa-user"></i>
+     <p id='username'><i class="fas fa-user"></i><%= @username %> </p>
+   </div>
+  </nav>
+
+  <div class = "container">
+    <h1>Please create your team</h1>
+    <%= if MyTeams.unsuccessful == true then 
+    'Team creation unsucessful. That name has been taken, please try again' end %>
+
+    <form class ="team_form" action="/team_created" method="post">
+      <input required type="text" name="Team Name" placeholder='Team 1'/>
+      <input required type="number" min='0' max='30' name="Number of Players" placeholder="Number of Players" />
+      <input required type="text" name="Coach or Manager" placeholder="Coach or Manager"/>
+      <input type="text" name="team_url" placeholder="Team Url"/>
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+  <title>Listing created</title>
+  <link rel="stylesheet" type="text/css" href="<%= url("/listing_form_style.css")%>">
+  <script src="https://kit.fontawesome.com/ea92a85679.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id='top-bar'>
+    <div id='logo'>
+    </div>
+    <h1> Team Created </h1>
+  </div>
+  <nav>
+    <a href="/home" id='home'><i class="fas fa-home"></i> Home</a>
+    <div id="nav-links">
+      <a href="/form_a_team">Form a Team</a>
+      <a href="/edit_a_team">Edit a Team</a>
+      <a href="/">Logout</a><i class="fas fa-user"></i>
+    </div>
+  </nav>
+  <%# main %>
+  <section class='container'>
+    <h3>Team created:</h3>
+    <div id='team-container'>
+      <div id='team-details'>
+      Team Name: <span><%= @team_name %></span>
+      <br>
+      Number of Players: <span><%= @number_of_players %></span>
+      <br>
+      Coach or Manager: <span><%= @coach_or_manager %></span>
+      </div>
+      <br>
+    </div>
+  </section>
+</body>

@@ -8,7 +8,7 @@ require './database_connection_setup'
 # require './lib/bookings'
 require_relative './lib/teams'
 require './lib/user'
-# require_relative './lib/update'
+require_relative './lib/update'
 # require './lib/images'
 
 
@@ -60,5 +60,20 @@ class PlayerProgressTracker < Sinatra::Base
       flash[:notice] = 'Invalid username or password'
       redirect '/login'
     end 
+  end
+
+  get '/form_a_team' do
+    erb :'form_a_team'
+  end
+  post '/team_created' do
+    if MyTeams.exist?(team_name: params[:Team_Name])
+        redirect '/form_a_team'
+    else
+      MyTeams.create_team(team_name: params[:Name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: session[:user_id])
+      @team_name = params[:Name]
+      @number_of_players = params[:Number_of_Players]
+      @coach_or_manager = params[:Coach_or_Manager]
+      erb :'team_created_success'
+    end
   end
 end
