@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <title>List a space</title>
+  <link rel="stylesheet" type="text/css" href="<%= url("/listing_form_style.css")%>">
+</head>
+<body>
+
+  <div id='top-bar'>
+    <div id='logo'>
+    </div>
+    <h1> Player Progress Tracker </h1>
+  </div>
+
+  <nav> 
+   <a href="/home" id='home'><i class="fas fa-home"></i> Home</a>
+    <div class="nav-links">
+      <a href="/update_team">Update Team</a> |
+      <a href="/check_team">Check Team</a> |
+      <a href="/">Logout</a><i class="fas fa-user"></i>
+    </div>
+  </nav>
+
+  <div class = "container">
+    <h1>Please edit the listing below, or just leave it as it is!</h1>
+
+    <form class ="team_form" action="/team_updated/<%= session[:teams_id]%>" method="post">
+      <input required type="text" name="Name" placeholder='@team_name'/>
+      <input required type="number" min='0' name="number_of_players" placeholder="<number_of_players" />
+      <input required type="text" name="coach_or_manager" placeholder="coach_or_manager"/>
+      <input type="submit" value="Submit" />
+    </form>
+
+    <% @number_of_players.each do |num| %>
+    <form class ="team_form" action="/team_created" method="post">
+    <input required type="text" name= num placeholder='name'/>
+    <input type="submit" value="Submit" />
+    </form>
+    <% end %>
+  </div>
+</body>

@@ -27,9 +27,9 @@
     'Team creation unsucessful. That name has been taken, please try again' end %>
 
     <form class ="team_form" action="/team_created" method="post">
-      <input required type="text" name="Team Name" placeholder='Team 1'/>
-      <input required type="number" min='0' max='30' name="Number of Players" placeholder="Number of Players" />
-      <input required type="text" name="Coach or Manager" placeholder="Coach or Manager"/>
+      <input required type="text" name="team_name" placeholder='Team 1'/>
+      <input required type="number" min='0' max='30' name="number_of_players" placeholder="Number of Players" />
+      <input required type="text" name="coach_or_manager" placeholder="Coach or Manager"/>
       <input type="text" name="team_url" placeholder="Team Url"/>
       <input type="submit" value="Submit" />
     </form>
