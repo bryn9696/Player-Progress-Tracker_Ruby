@@ -3,8 +3,8 @@ require 'teams'
 describe MyTeams do
 
   it 'Adds team details into the myteams table' do
-    MyTeams.create_team(team_name: 'Another Team',number_of_players: '1',coach_or_manager: 'bryn', user_id:  1)
     connection = PG.connect(dbname: 'player_progress_tracker_test')
+    MyTeams.create_team(team_name: 'Another Team',number_of_players: '1',coach_or_manager: 'bryn', user_id: 1)
     result = connection.exec('SELECT * FROM my_teams')
     expect(result.map {|teams| p teams['team_name'] }).to include('Another Team')
   end

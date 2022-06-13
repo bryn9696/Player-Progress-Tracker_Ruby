@@ -27,13 +27,14 @@
   <% @teams.each do |team| %>
     <div id='team-container'>
       <div id='details-team'>
-        <h2 d='team_name'><%= team['team_name'] %></h2>
+        <h2 id='team_name'><%= team['team_name'] %></h2>
+        
         <%# <span>Number  of Players</span>  %>
         <div id='squad_size'>
           <p id='ss'> <h5>Squad size:  <%= team['number_of_players'] %></h5></p>
         </div>
         <div id='coach_or_manager'>
-          <p id='desc'> <h5>Coach or Manager:  <%= team['coach_or_manager'] %></h5></p>
+          <p id='cm'> <h5>Coach or Manager:  <%= team['coach_or_manager'] %></h5></p>
         </div>
       </div>
     </div>

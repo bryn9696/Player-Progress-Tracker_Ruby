@@ -56,6 +56,7 @@ class PlayerProgressTracker < Sinatra::Base
       @teams = MyTeams.view_teams
       @username = session[:username]
       @user_id = session[:user_id]
+      
       erb :home
     else
       flash[:notice] = 'Invalid username or password'
@@ -68,15 +69,9 @@ class PlayerProgressTracker < Sinatra::Base
   end
 
   post '/team_created' do
-    p '**************************************'
     @teamname = params[:team_name]
     @user = session[:user_id]
     @number_of_players = params[:number_of_players]
-    p @teamname
-    p @user
-    p @number_of_players
-    p "coach/manager - #{params[:coach_or_manager]}"
-    p "teamurl - #{params[:team_url]}"
     if MyTeams.exist?(team_name: params[:team_name])
       @team_name = params[:team_name]
       @number_of_players = params[:number_of_players]
@@ -84,12 +79,9 @@ class PlayerProgressTracker < Sinatra::Base
         redirect '/form_a_team'
     else
       MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: params[:user_id])
-      @team_name = MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: params[:user_id])
+      @team_name = params[:team_name]
       @number_of_players = params[:number_of_players]
       @coach_or_manager = params[:coach_or_manager]
-      p '**********************************'
-      p @team_name
-      p @number_of_players
       erb :'team_created_success'
     end
   end
