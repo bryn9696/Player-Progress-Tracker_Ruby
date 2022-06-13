@@ -83,8 +83,8 @@ class PlayerProgressTracker < Sinatra::Base
       @coach_or_manager = params[:coach_or_manager]
         redirect '/form_a_team'
     else
-      MyTeams.create_team(team_name: params[:team_name], my_teams_id: params[:my_teams_id], number_of_players: params[:number_of_players], coach_or_manager: params[:coach_or_manager], user_id: session[:user_id])
-      @team_name = MyTeams.create_team(team_name: params[:team_name])
+      MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: params[:user_id])
+      @team_name = MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: params[:user_id])
       @number_of_players = params[:number_of_players]
       @coach_or_manager = params[:coach_or_manager]
       p '**********************************'
@@ -99,5 +99,15 @@ class PlayerProgressTracker < Sinatra::Base
     p @number_of_players
     p @user
     erb :edit_a_team
+  end
+
+  get '/my_teams' do
+    if User.valid(session[:username], session[:password])
+      session[:user_id] = User.user_id(username: session[:username])
+      @teams = MyTeams.view_teams
+      @username = session[:username]
+      @user_id = session[:user_id]
+    erb :my_teams
+    end
   end
 end
