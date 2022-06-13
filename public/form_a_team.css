@@ -47,3 +47,25 @@ nav {
   font-weight: bold;
   color: blue;
 }
+.container {
+  max-width: 600px;
+  max-height: 300px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0.8rem auto 0.8rem auto;
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #e4e4e4;
+}
+h1 {
+  text-align: center;
+}
+input, textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
