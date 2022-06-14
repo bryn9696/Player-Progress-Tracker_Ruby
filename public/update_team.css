@@ -1,0 +1,49 @@
+#top-bar {
+  background-color: #e4e4e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  color: black;
+  font-size: 2rem;
+}
+/* navbar */
+a {
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+a:hover {
+  color: blue;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  margin-top: 10px;
+}
+#home {
+  margin: auto auto auto 0.5rem;
+}
+.fa-home {
+  font-size: 1.2rem;
+  color: black;
+}
+#nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 38rem;
+}
+.fa-user {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+#username {
+  margin-right: 0.8rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: blue;
+}
