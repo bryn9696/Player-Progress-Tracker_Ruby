@@ -102,4 +102,8 @@ class PlayerProgressTracker < Sinatra::Base
     erb :my_teams
     end
   end
+
+  get '/update_team' do
+    erb :update_team
+  end
 end
