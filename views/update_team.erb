@@ -14,8 +14,7 @@
   <nav> 
    <a href="/home" id='home'><i class="fas fa-home"></i> Home</a>
     <div class="nav-links">
-      <a href="/update_team">Update Team</a> |
-      <a href="/check_team">Check Team</a> |
+      <a href="/my_teams">My Teams</a> |
       <a href="/">Logout</a><i class="fas fa-user"></i>
     </div>
   </nav>
@@ -23,6 +22,9 @@
   <div class = "container">
     <h1>Please edit the team below, or just leave it as it is!</h1>
 
+    <% Updater.list(id: session[:user_id]).each do |teams|%>
+      <h3><%= teams %></h3>
+    <%end%>  
     <form class ="team_form" action="/team_updated/<%= session[:teams_id]%>" method="post">
       <input required type="text" name="Name" placeholder='@team_name'/>
       <input required type="number" min='0' name="number_of_players" placeholder="<number_of_players" />
