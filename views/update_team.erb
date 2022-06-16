@@ -32,11 +32,11 @@
       <input type="submit" value="Submit" />
     </form>
 
-    <form class ="team_form" action="/team_updated/<%= session[:teams_id]%>" method="post">
-    <input required type="text" name="Name" placeholder='Name'/>
-    <input required type="number" min='0' name="Age" placeholder="Age" />
-    <input required type="text" name="Email" placeholder="Email"/>
-    <input required type="text" name="Number" placeholder="Phone Number"/>
+    <form class ="team" action="/my_teams<%= session[:player_id]%>" method="get">
+    <input required type="text" name="name" placeholder='Name'/>
+    <input required type="number" min='0' name="age" placeholder="Age" />
+    <input required type="text" name="email" placeholder="Email"/>
+    <input required type="text" name="phone" placeholder="Phone Number"/>
     <input type="submit" value="Submit" />
   </form>
 

@@ -7,6 +7,7 @@ require 'sinatra/reloader'
 require './database_connection_setup'
 # require './lib/bookings'
 require_relative './lib/teams'
+require_relative './lib/myteams'
 require './lib/user'
 require_relative './lib/update'
 # require './lib/images'
@@ -104,6 +105,11 @@ class PlayerProgressTracker < Sinatra::Base
   end
 
   get '/update_team' do
+    Teams.create_player(name: params[:name], age: params[:age], email: params[:email], phone: params[:phone])
+    @player_name = params[:name]
+    @age = params[:age]
+    @email = params[:email]
+    @phone = params[:phone]
     erb :update_team
   end
 end
