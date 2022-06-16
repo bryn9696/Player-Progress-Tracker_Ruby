@@ -1,9 +1,9 @@
 require './lib/database_connection'
 
-class Teams
+class MyTeams
 
-  def self.create_team(name:, age:, email:, phone:)
-    DatabaseConnection.query("INSERT INTO teams (name, age, email, phone) VALUES($1, $2, $3, $4) RETURNING name, age, email, phone;", [name, age, email, phone]
+  def self.create_team(team_name:, number_of_players:, coach_or_manager:, user_id:)
+    DatabaseConnection.query("INSERT INTO my_teams (team_name, number_of_players, coach_or_manager, user_id) VALUES($1, $2, $3, $4) RETURNING team_name, number_of_players, coach_or_manager;", [team_name, number_of_players, coach_or_manager, user_id]
       )
   end
 

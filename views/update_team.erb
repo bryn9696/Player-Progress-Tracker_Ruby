@@ -26,11 +26,19 @@
       <h3><%= teams %></h3>
     <%end%>  
     <form class ="team_form" action="/team_updated/<%= session[:teams_id]%>" method="post">
-      <input required type="text" name="Name" placeholder='@team_name'/>
-      <input required type="number" min='0' name="number_of_players" placeholder="<number_of_players" />
-      <input required type="text" name="coach_or_manager" placeholder="coach_or_manager"/>
+      <input required type="text" name="Name" placeholder="Team name"/>
+      <input required type="number" min='0' name="number_of_players" placeholder="Number of Players" />
+      <input required type="text" name="coach_or_manager" placeholder="Coach or Manager"/>
       <input type="submit" value="Submit" />
     </form>
+
+    <form class ="team_form" action="/team_updated/<%= session[:teams_id]%>" method="post">
+    <input required type="text" name="Name" placeholder='Name'/>
+    <input required type="number" min='0' name="Age" placeholder="Age" />
+    <input required type="text" name="Email" placeholder="Email"/>
+    <input required type="text" name="Number" placeholder="Phone Number"/>
+    <input type="submit" value="Submit" />
+  </form>
 
 
   </div>
