@@ -57,7 +57,7 @@ class PlayerProgressTracker < Sinatra::Base
       @teams = MyTeams.view_teams
       @username = session[:username]
       @user_id = session[:user_id]
-      
+      p session[:number_of_players]
       erb :home
     else
       flash[:notice] = 'Invalid username or password'
@@ -79,9 +79,10 @@ class PlayerProgressTracker < Sinatra::Base
       @coach_or_manager = params[:coach_or_manager]
         redirect '/form_a_team'
     else
-      MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager], user_id: params[:user_id])
+      MyTeams.create_team(team_name: params[:team_name], number_of_players: params[:Number_of_Players], coach_or_manager: params[:Coach_or_Manager])
       @team_name = params[:team_name]
-      @number_of_players = params[:number_of_players]
+      session[:number_of_players] = params[:number_of_players]
+      @number_of_players = session[:number_of_players]
       @coach_or_manager = params[:coach_or_manager]
       erb :'team_created_success'
     end
